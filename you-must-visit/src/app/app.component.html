@@ -1,24 +1,3 @@
 <!-- <app-header /> -->
 <app-main />
-
-<form #f="ngForm" (ngSubmit)="addData(f)">
-    <label for="description">Description</label>
-    <input type="text" name="description" ngModel>
-    <br>
-    <label for="title">Title</label>
-    <input type="text" name="title" ngModel>
-    <br>
-    <button type="submit">Save</button>
-</form>
-
-<br/><br/><br/>
-
-<ul type="none">
-<li *ngFor="let data of postData |async">
-    title: {{ data.title }} / description: {{ data.description}}
-    <button (click)="updateData(data.id)"> Edit </button>
-    <button (click)="deleteData(data.id)"> Delete </button>
-</li>
-</ul>
-
 <!-- <app-footer /> -->

@@ -12,8 +12,67 @@ import { Post } from '../model/post';
 })
 export class PostsListComponent {
 
-  constructor() {
-    
+  postData !: Observable<Array<any>>;
+
+  description !: string;
+  title !: string;
+  id !: string;
+
+  formState: string = "Добави Нов";
+
+  isSuccess: boolean = false;
+  successMessage !: string;
+
+  constructor(private apiService: ApiService) {
+    this.getData();
+  }
+
+  showAlert(message: string) {
+    this.isSuccess = true;
+    this.successMessage = message;
+  }
+
+  onSubmit(values: object) {
+
+    if (this.formState == 'Добави Нов') {
+      this.apiService.addData(values)
+        .then(() => {
+          this.showAlert('Data Saved Successfuly');
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    } else if (this.formState == 'Редактирай') {
+      this.apiService.updateData(this.id, values)
+        .then(() => {
+          this.showAlert('Data Edited Successfuly');
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  }
+
+  getData() {
+    this.postData = this.apiService.getData();
+  }
+
+  updateData(description: string, title: string, id: string) {
+    this.description = description;
+    this.title = title;
+    this.id = id;
+
+    this.formState = 'Редактирай';
+  }
+
+  deleteData(id: string) {
+    this.apiService.deleteData(id)
+    .then(()=> {
+      this.showAlert('Data Deleted Successfuly');
+    })
+    .catch(err=> {
+      console.log(err); 
+    })
   }
 
 }

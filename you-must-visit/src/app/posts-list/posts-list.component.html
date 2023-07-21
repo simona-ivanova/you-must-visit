@@ -1,1 +1,32 @@
 <p>posts-list works!</p>
+
+<button> Добави Нов Пост </button>
+
+<!-- alert -->
+
+<div *ngIf="isSuccess"> {{ successMessage }} </div>
+
+<!-- Add New Post Form -->
+
+<h2> {{ formState }} Пост </h2>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <label for="description">Описание</label>
+    <input [(ngModel)]="description" type="text" name="description">
+    <br>
+    <label for="title">Заглавие</label>
+    <input [(ngModel)]="title" type="text" name="title">
+    <br>
+    <button type="submit">
+        {{ formState }} Пост
+    </button>
+</form>
+
+<br/><br/><br/>
+
+<ul type="none">
+<li *ngFor="let data of postData | async">
+    Заглавие: {{ data.title }} / Описание: {{ data.description}}
+    <button (click)="updateData(data.description, data.title, data.id)"> Edit </button>
+    <button (click)="deleteData(data.id)"> Delete </button>
+</li>
+</ul>

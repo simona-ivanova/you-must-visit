@@ -1,9 +1,13 @@
 header {
     position: fixed;
     height: 80px;
-    top: 0;
+    /* top: 0;
     left: 0;
-    right: 0;
+    right: 0; */
+
+    margin: 0 auto;
+    width: 100%;
+
     background: #fff;
     padding: 2rem 9%;
     display: flex;
@@ -25,7 +29,7 @@ header .logo {
     font-size: 3rem;
     color: #333;
     font-weight: bolder;
-    font-family: Indie Flower;
+    font-family: 'Indie Flower';
 }
 
 header .logo span {

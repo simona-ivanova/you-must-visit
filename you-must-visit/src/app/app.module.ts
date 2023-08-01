@@ -12,12 +12,14 @@ import { MainComponent } from './main/main.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 
 import { FormsModule } from '@angular/forms';
+import { HomeBannerComponent } from './home-banner/home-banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    PostsListComponent
+    PostsListComponent,
+    HomeBannerComponent
   ],
   imports: [
     BrowserModule,

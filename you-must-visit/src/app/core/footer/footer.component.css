@@ -1,4 +1,5 @@
 footer {
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
@@ -7,6 +8,7 @@ footer {
     width: 100vw;
     font-family: 'Open Sans';
     padding-top: 30px;
+    margin: 0;
     /* color: #666666; */
     color: #fff;
 }

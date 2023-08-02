@@ -13,6 +13,8 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
+import { PostModule } from './post/post.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HomeComponent } from './home/home.component';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     CoreModule,
+    UserModule,
+    PostModule
   ],
   providers: [],
   bootstrap: [AppComponent]

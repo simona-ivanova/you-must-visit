@@ -25,13 +25,13 @@ import { PostModule } from './post/post.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     CoreModule,
     UserModule,
-    PostModule
+    PostModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

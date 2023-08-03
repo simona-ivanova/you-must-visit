@@ -32,7 +32,7 @@ export class PostsListComponent {
     this.successMessage = message;
   }
 
-  onSubmit(values: object) {
+  onSubmit(values: object):void {
 
     if (this.formState == 'Добави Нов') {
       this.apiService.addData(values)

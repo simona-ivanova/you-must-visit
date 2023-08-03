@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { PostModule } from './post/post.module';
     PostModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

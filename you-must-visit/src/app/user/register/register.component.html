@@ -4,10 +4,10 @@
         <div class="register">
             <form>
                 <h3>Регистрация</h3>
-                <input type="email" name="email" placeholder="Имейл" required="">
-                <input type="password" name="pswd" placeholder="Парола" required="">
-                <input type="password" name="repeat-pswd" placeholder="Повтори парола" required="">
-                <button class="register btn">Създай профил</button>
+                <input type="email" name="email" placeholder="Имейл" [(ngModel)]="email">
+                <input type="password" name="pswd" placeholder="Парола" [(ngModel)]="password">
+                <input type="password" name="repeat-pswd" placeholder="Повтори парола" [(ngModel)]="password">
+                <button class="register btn" (click)="register()">Създай профил</button>
             </form>
         </div>
 

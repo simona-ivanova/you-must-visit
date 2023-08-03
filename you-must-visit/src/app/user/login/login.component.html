@@ -4,13 +4,13 @@
         <div class="login">
             <form>
                 <h3>Вход</h3>
-                <input type="email" name="email" placeholder="Имейл" required="">
+                <input type="email" name="email" placeholder="Имейл" [(ngModel)]="email">
                 <p class="error">Полето не може да бъде празно!</p>
                 <p class="error">Невалиден имейл!</p>
-                <input type="password" name="pswd" placeholder="Парола" required="">
+                <input type="password" name="pswd" placeholder="Парола" [(ngModel)]="password">
                 <p class="error">Полето не може да бъде празно!</p>
-                <p class="error">Паролата трябва да бъде поне 4 символа!</p>
-                <button class="login btn">Вход</button>
+                <p class="error">Паролата трябва да бъде поне 6 символа!</p>
+                <button type="button" class="login btn" (click)="login()">Вход</button>
             </form>
         </div>
 

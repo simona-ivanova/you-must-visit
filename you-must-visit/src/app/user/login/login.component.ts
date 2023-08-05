@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/user/auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,32 +10,27 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  email: string = '';
-  password: string = '';
+  // email: string = '';
+  // password: string = '';
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  login() {
+  login(form: NgForm) {
+    const { email, pswd } = form.value;
 
-    if (this.email == '') {
-      alert('Please enter email');
-      return;
-    }
-
-    if (this.password == '') {
+    if (pswd == '') {
       alert('Please enter password');
       return;
     }
 
-    this.auth.login(this.email, this.password);
+    this.auth.login(email, pswd);
+    console.log(email);
 
-    this.email = '';
-    this.password = '';
-
-
+    // this.email = '';
+    // this.password = '';
 
   }
 

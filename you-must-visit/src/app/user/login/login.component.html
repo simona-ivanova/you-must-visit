@@ -2,15 +2,44 @@
     <div class="main">
 
         <div class="login">
-            <form>
+            <form #form="ngForm" (ngSubmit)="login(form)">
                 <h3>Вход</h3>
-                <input type="email" name="email" placeholder="Имейл" [(ngModel)]="email">
-                <p class="error">Полето не може да бъде празно!</p>
-                <p class="error">Невалиден имейл!</p>
-                <input type="password" name="pswd" placeholder="Парола" [(ngModel)]="password">
-                <p class="error">Полето не може да бъде празно!</p>
-                <p class="error">Паролата трябва да бъде поне 6 символа!</p>
-                <button type="button" class="login btn" (click)="login()">Вход</button>
+                <input 
+                type="email" 
+                name="email" 
+                placeholder="Имейл" 
+                ngModel
+                #inputEmail="ngModel" 
+                required
+                [appEmail]="[]"
+                />
+
+                {{ form.value | json }}
+
+                <ng-container *ngIf="inputEmail.touched">
+                    <p class="error" *ngIf="inputEmail.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                    <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
+                        Невалиден имейл!
+                    </p>
+                </ng-container>
+
+                <input 
+                type="password" 
+                name="pswd" 
+                placeholder="Парола"
+                ngModel  
+                #inputPassword="ngModel"
+                required
+                />
+
+                <ng-container *ngIf="inputPassword.touched">
+                    <p class="error" *ngIf="inputPassword.errors?.['required']">Полето не може да бъде празно!</p>
+                    <p class="error">Паролата трябва да бъде поне 6 символа!</p>
+                </ng-container>
+
+                <button class="login btn">Вход</button>
             </form>
         </div>
 

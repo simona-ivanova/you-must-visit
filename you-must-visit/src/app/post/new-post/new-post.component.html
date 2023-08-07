@@ -1,1 +1,55 @@
-<p>new-post works!</p>
+<div class="container">
+    <div class="main">
+
+        <div class="create-post">
+            <form #form="ngForm" (ngSubmit)="newPostSubmitHandler(form)">
+                <h3>Нов пост</h3>
+                <input 
+                type="text" 
+                name="title" 
+                placeholder="Заглавие" 
+                ngModel
+                #inputTitle="ngModel"
+                required
+                />
+
+                <ng-container *ngIf="inputTitle.touched">
+                    <p class="error" *ngIf="inputTitle.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                </ng-container>
+
+                <textarea
+                    type="text" 
+                    name="description" 
+                    placeholder="Описание"
+                    ngModel  
+                    #textAreaInput="ngModel"
+                    required
+                    minlength="3"
+                ></textarea>
+
+                <ng-container *ngIf="textAreaInput.touched">
+                    <p class="error" *ngIf="textAreaInput.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                    <p class="error" *ngIf="textAreaInput.errors?.['minlength']">
+                        Описанието трябва да бъде поне {{ textAreaInput.errors?.['minlength']['requiredLength'] }} символа!</p>
+                </ng-container>
+
+                <button 
+                    class="create-post btn"
+                    [style]="{backgroundColor: form.invalid ? '#e0dede' : 'var(--blue)', color: form.invalid ? 'grey' : 'white' }"
+                >
+                Създай нов пост
+                </button>
+
+            </form>
+        </div>
+
+        <div class="bottom">
+            <div class="bottom-wrapper">
+            </div>
+        </div>
+    </div>
+</div>

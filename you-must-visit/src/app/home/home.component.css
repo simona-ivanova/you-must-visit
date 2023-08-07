@@ -67,7 +67,7 @@
     font-size: 18px;
     font-weight: 600;
     font-style: italic;
-    transition: .6s;
+    /* transition: .6s; */
 }
 
 .banner-content .btn:hover {

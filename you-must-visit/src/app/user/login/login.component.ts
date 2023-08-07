@@ -21,16 +21,11 @@ export class LoginComponent implements OnInit {
   login(form: NgForm) {
     const { email, pswd } = form.value;
 
-    if (pswd == '') {
-      alert('Please enter password');
+    if (form.invalid) {
       return;
     }
-
+  
     this.auth.login(email, pswd);
-    console.log(email);
-
-    // this.email = '';
-    // this.password = '';
 
   }
 

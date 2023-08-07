@@ -14,8 +14,6 @@
                 [appEmail]="[]"
                 />
 
-                {{ form.value | json }}
-
                 <ng-container *ngIf="inputEmail.touched">
                     <p class="error" *ngIf="inputEmail.errors?.['required']">
                         Полето не може да бъде празно!
@@ -32,14 +30,25 @@
                 ngModel  
                 #inputPassword="ngModel"
                 required
+                minlength="6"
                 />
 
                 <ng-container *ngIf="inputPassword.touched">
-                    <p class="error" *ngIf="inputPassword.errors?.['required']">Полето не може да бъде празно!</p>
-                    <p class="error">Паролата трябва да бъде поне 6 символа!</p>
+                    <p class="error" *ngIf="inputPassword.errors?.['required']">
+                        Полето не може да бъде празно!</p>
+                    <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+                        Паролата трябва да бъде поне {{ inputPassword.errors?.['minlength']['requiredLength'] }} символа!
+                    </p>
                 </ng-container>
 
-                <button class="login btn">Вход</button>
+                <button class="login btn"
+                [style]="{backgroundColor: form.invalid ? '#e0dede' : 'var(--blue)', color: form.invalid ? 'grey' : 'white' }"
+                >
+                <!-- [disabled]="form.invalid" -->
+                Вход
+                </button>
+
+                
             </form>
         </div>
 

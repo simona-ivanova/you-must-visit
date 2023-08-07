@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/user/auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { repeat } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -8,34 +11,25 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  email: string = '';
-  password: string = '';
+  // email: string = '';
+  // password: string = '';
 
-  constructor(private auth : AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  register() {
+  register(form: NgForm) {
+    let { email, pswd, repeatPswd } = form.value;
 
-    if (this.email == '') {
-      alert('Please enter email');
-      return;
+    if (pswd !== repeatPswd) {
+      return
     }
 
-    if (this.password == '') {
-      alert('Please enter password');
-      return;
-    }
+    this.auth.register(email, pswd);
 
-    this.auth.register(this.email, this.password);
-
-    this.email = '';
-    this.password = '';
-
-
-
+    email = '';
+    pswd = '';
   }
-
 
 }

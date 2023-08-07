@@ -87,6 +87,7 @@ input {
     border-radius: 5px;
     /* transition: .2s ease-in; */
     cursor: pointer;
+
 }
 
 .login .btn:hover {
@@ -106,5 +107,4 @@ input {
     color: rgb(187, 48, 48);
     font-size: 1.2em;
     text-align: center;
-
 }

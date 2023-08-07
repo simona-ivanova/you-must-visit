@@ -2,12 +2,73 @@
     <div class="main">
 
         <div class="register">
-            <form>
+            <form #form="ngForm" (ngSubmit)="register(form)">
                 <h3>Регистрация</h3>
-                <input type="email" name="email" placeholder="Имейл" [(ngModel)]="email">
-                <input type="password" name="pswd" placeholder="Парола" [(ngModel)]="password">
-                <input type="password" name="repeat-pswd" placeholder="Повтори парола" [(ngModel)]="password">
-                <button class="register btn" (click)="register()">Създай профил</button>
+
+                <input 
+                type="email" 
+                name="email" 
+                placeholder="Имейл" 
+                ngModel
+                #inputEmail="ngModel" 
+                required
+                [appEmail]="[]"
+                />
+
+                <ng-container *ngIf="inputEmail.touched">
+                    <p class="error" *ngIf="inputEmail.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                    <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
+                        Невалиден имейл!
+                    </p>
+                </ng-container>
+
+                <input 
+                type="password" 
+                name="pswd" 
+                placeholder="Парола"
+                ngModel  
+                #inputPassword="ngModel"
+                required
+                minlength="6"
+                />
+
+                <ng-container *ngIf="inputPassword.touched">
+                    <p class="error" *ngIf="inputPassword.errors?.['required']">
+                        Полето не може да бъде празно!</p>
+                    <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+                        Паролата трябва да бъде поне {{ inputPassword.errors?.['minlength']['requiredLength'] }} символа!</p>
+                </ng-container>
+
+                <input 
+                type="password" 
+                name="repeat-pswd" 
+                placeholder="Повтори парола"
+                ngModel  
+                #inputRepeatPassword="ngModel"
+                required
+                minlength="6"
+                />
+
+                <ng-container *ngIf="inputRepeatPassword.touched">
+                    <p class="error" *ngIf="inputRepeatPassword.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                    <p class="error" *ngIf="inputRepeatPassword.value !== inputPassword.value">
+                        Паролите не съвпадат!
+                        </p>
+
+                        <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+                            Паролата трябва да бъде поне {{ inputPassword.errors?.['minlength']['requiredLength'] }} символа!</p>
+                </ng-container>
+
+                <button class="register btn"
+                [style]="{backgroundColor: form.invalid ? '#e0dede' : 'var(--blue)',
+                color: form.invalid ? 'grey' : 'white'}"
+                >
+                Създай профил
+            </button>
             </form>
         </div>
 

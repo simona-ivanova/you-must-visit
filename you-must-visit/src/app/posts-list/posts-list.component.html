@@ -1,32 +1,91 @@
-<p>posts-list works!</p>
+<div class="old">
+    <button> Добави Нов Пост </button>
 
-<button> Добави Нов Пост </button>
+    <!-- alert -->
 
-<!-- alert -->
+    <div *ngIf="isSuccess"> {{ successMessage }} </div>
 
-<div *ngIf="isSuccess"> {{ successMessage }} </div>
+    <!-- Add New Post Form -->
 
-<!-- Add New Post Form -->
+    <h2> {{ formState }} Пост </h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <label for="description">Описание</label>
+        <input [(ngModel)]="description" type="text" name="description">
+        <br>
+        <label for="title">Заглавие</label>
+        <input [(ngModel)]="title" type="text" name="title">
+        <br>
+        <button type="submit">
+            {{ formState }} Пост
+        </button>
+    </form>
 
-<h2> {{ formState }} Пост </h2>
-<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-    <label for="description">Описание</label>
-    <input [(ngModel)]="description" type="text" name="description">
-    <br>
-    <label for="title">Заглавие</label>
-    <input [(ngModel)]="title" type="text" name="title">
-    <br>
-    <button type="submit">
-        {{ formState }} Пост
-    </button>
-</form>
+    <br /><br /><br />
 
-<br/><br/><br/>
+    <ul type="none">
+        <li *ngFor="let data of postData | async">
+            Заглавие: {{ data.title }} / Описание: {{ data.description}}
+            <button (click)="updateData(data.description, data.title, data.id)"> Edit </button>
+            <button (click)="deleteData(data.id)"> Delete </button>
+        </li>
+    </ul>
+</div>
 
-<ul type="none">
-<li *ngFor="let data of postData | async">
-    Заглавие: {{ data.title }} / Описание: {{ data.description}}
-    <button (click)="updateData(data.description, data.title, data.id)"> Edit </button>
-    <button (click)="deleteData(data.id)"> Delete </button>
-</li>
-</ul>
+
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+        </div>
+        <div class="card-body">
+            <!-- <span class="tag tag-teal">Technology</span> -->
+            <h4>
+                Why is the Tesla Cybertruck designed the way it
+                is?
+            </h4>
+            <p>
+                An exploration into the truck's polarising design
+            </p>
+            <div class="data">
+                <p>23/04/2023</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <img src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg"
+                alt="ballons" />
+        </div>
+        <div class="card-body">
+            <!-- <span class="tag tag-purple">Popular</span> -->
+            <h4>
+                How to Keep Going When You Don’t Know What’s Next
+            </h4>
+            <p>
+                The future can be scary, but there are ways to
+                deal with that fear.
+            </p>
+            <div class="data">
+                <p>23/04/2023</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <img src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg" alt="city" />
+        </div>
+        <div class="card-body">
+            <!-- <span class="tag tag-pink">Design</span> -->
+            <h4>
+                10 Rules of Dashboard Design
+            </h4>
+            <p>
+                Dashboard Design Guidelines
+            </p>
+            <div class="date">
+                <p>23/04/2023</p>
+            </div>
+        </div>
+    </div>

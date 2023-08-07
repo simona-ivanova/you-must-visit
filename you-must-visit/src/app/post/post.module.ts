@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewPostComponent } from './new-post/new-post.component';
 import { CurrentPostComponent } from './current-post/current-post.component';
 import { PostRoutingModule } from './post-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { PostRoutingModule } from './post-routing.module';
   ],
   imports: [
     CommonModule,
-    PostRoutingModule
+    PostRoutingModule,
+    FormsModule
   ]
 })
 export class PostModule { }

@@ -4,8 +4,7 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { CurrentPostComponent } from './current-post/current-post.component';
 import { PostRoutingModule } from './post-routing.module';
 import { FormsModule } from '@angular/forms';
-
-
+import { CKEditorModule } from 'ckeditor4-angular';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PostRoutingModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule
   ]
 })
 export class PostModule { }

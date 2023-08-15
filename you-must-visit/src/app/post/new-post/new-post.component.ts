@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
+
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',

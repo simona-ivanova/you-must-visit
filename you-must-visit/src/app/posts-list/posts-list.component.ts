@@ -14,6 +14,7 @@ export class PostsListComponent {
 
   description !: string;
   title !: string;
+  post !: string
   id !: string;
 
   formState: string = "Добави Нов";
@@ -55,9 +56,10 @@ export class PostsListComponent {
     this.postData = this.apiService.getData();
   }
 
-  updateData(description: string, title: string, id: string) {
+  updateData(description: string, title: string, post: string, id: string) {
     this.description = description;
     this.title = title;
+    this.post = post;
     this.id = id;
 
     this.formState = 'Редактирай';

@@ -37,6 +37,20 @@
                         Описанието трябва да бъде поне {{ textAreaInput.errors?.['minlength']['requiredLength'] }} символа!</p>
                 </ng-container>
 
+                <ckeditor 
+                name="post"
+                data=""
+                ngModel
+                #inputPost="ngModel"
+                required
+                ></ckeditor>
+
+                <ng-container *ngIf="inputPost.touched">
+                    <p class="error" *ngIf="inputPost.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                </ng-container>
+               
                 <button 
                     class="create-post btn"
                     [style]="{backgroundColor: form.invalid ? '#e0dede' : 'var(--blue)', color: form.invalid ? 'grey' : 'white' }"

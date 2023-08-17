@@ -48,6 +48,11 @@ header nav a:hover {
     color: var(--blue);
 }
 
+header .icons span {
+    font-size: 1.5rem;
+    color: #666;
+}
+
 header .icons i {
     font-size: 2rem;
     color: #333;

@@ -20,6 +20,10 @@
     </nav>
 
     <div class="icons">
-        <i routerLink="/login" class="fa fa-user"></i>
+        <span *ngIf="isLoggedIn()">
+           Здравей, {{username}}!
+        </span>
+        <i *ngIf="!isLoggedIn()" routerLink="/login" class="fa fa-user"></i>
+        <i *ngIf="isLoggedIn()" routerLink="/profile" class="fa fa-user"></i>
     </div>
 </header>

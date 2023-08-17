@@ -21,15 +21,16 @@ export class RegisterComponent implements OnInit {
 
   register(form: NgForm) {
     let { email, pswd, repeatPswd } = form.value;
+   
 
     if (pswd !== repeatPswd) {
       return
     }
-
+ 
     this.auth.register(email, pswd);
 
-    email = '';
-    pswd = '';
+    // email = '';
+    // pswd = '';
   }
 
 }

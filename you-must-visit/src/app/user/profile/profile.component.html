@@ -1,5 +1,17 @@
-<p>profile works!</p>
 
-<p>Имейл: </p>
+<div class="container">
+    <div class="main">
 
-<li (click)="logout()">Logout</li>
+        <div class="profile">
+            <p>Потребителско име:</p>
+            <p>Имейл:</p>
+        </div>
+
+        <div class="logout">
+            <div class="logout-wrapper">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <li (click)="logout()" type="none">Излизане</li>
+            </div>
+        </div>
+    </div>
+</div>

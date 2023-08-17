@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { DocumentData } from 'firebase/firestore';
-import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 import { Post } from 'src/app/model/post';
 
@@ -23,7 +20,6 @@ export class CurrentPostComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
-
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +30,7 @@ export class CurrentPostComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params;
 
     this.apiService.getPostById(id['postid']).then((myPost) => {
-      
+
       this.data = myPost
 
       this.title = myPost['title']
@@ -42,7 +38,6 @@ export class CurrentPostComponent implements OnInit {
       this.coverImage = myPost['coverImage']
       this.post = myPost['post']
 
-      console.log(this.data['title']);
     })
       .catch(err => {
         console.log(err);

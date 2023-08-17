@@ -16,13 +16,15 @@ import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     PostsListComponent,
-    HomeComponent
+    HomeComponent,
+    SanitizeHtmlPipe,
   ],
   imports: [
     BrowserModule,

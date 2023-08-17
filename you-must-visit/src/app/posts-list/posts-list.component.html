@@ -24,8 +24,10 @@
 
     <ul type="none">
         <li *ngFor="let data of postData | async">
-            Заглавие: {{ data.title }} / Описание: {{ data.description}} / пост: {{data.post}}
-            <div [innerHTML]="data.post"></div>
+            Заглавие: {{ data.title }} / Описание: {{ data.description}} / {{ data.id}} /
+
+            <td [innerHTML]="data.post | sanitizeHtml"></td>
+
             <button (click)="updateData(data.description, data.title, data.post, data.id)"> Edit </button>
             <button (click)="deleteData(data.id)"> Delete </button>
         </li>
@@ -34,59 +36,24 @@
 
 
 
-
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-        </div>
-        <div class="card-body">
-            <!-- <span class="tag tag-teal">Technology</span> -->
-            <h4>
-                Why is the Tesla Cybertruck designed the way it
-                is?
-            </h4>
-            <p>
-                An exploration into the truck's polarising design
-            </p>
-            <div class="data">
-                <p>23/04/2023</p>
+    <div class="card" *ngFor="let data of postData | async">
+        <a href="/posts/{{data.id}}">
+            <div class="card-header">
+                <img src="{{ data.coverImage }}" alt="" />
             </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <img src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg"
-                alt="ballons" />
-        </div>
-        <div class="card-body">
-            <!-- <span class="tag tag-purple">Popular</span> -->
-            <h4>
-                How to Keep Going When You Don’t Know What’s Next
-            </h4>
-            <p>
-                The future can be scary, but there are ways to
-                deal with that fear.
-            </p>
-            <div class="data">
-                <p>23/04/2023</p>
+            <div class="card-body">
+                <!-- <span class="tag tag-teal">Technology</span> -->
+                <h4>
+                    {{ data.title }}
+                </h4>
+                <p>
+                    {{ data.description}}
+                </p>
+                <div class="data">
+                    <p>23/04/2023</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <img src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg" alt="city" />
-        </div>
-        <div class="card-body">
-            <!-- <span class="tag tag-pink">Design</span> -->
-            <h4>
-                10 Rules of Dashboard Design
-            </h4>
-            <p>
-                Dashboard Design Guidelines
-            </p>
-            <div class="date">
-                <p>23/04/2023</p>
-            </div>
-        </div>
-    </div>
+</div>

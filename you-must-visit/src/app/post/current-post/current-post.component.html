@@ -1,1 +1,13 @@
 <p>current-post works!</p>
+
+<li *ngIf="data">
+    Заглавие: {{title}}
+    Описание: {{description}}
+    Снимка: <img src="{{coverImage}}" alt="">
+
+   <td [innerHTML]="post"></td>
+
+  
+    
+ </li>
+

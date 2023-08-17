@@ -7,16 +7,17 @@ import {
   collectionData,
   doc,
   updateDoc,
-  deleteDoc
+  deleteDoc,
+  getDoc
 } from '@angular/fire/firestore';
+import { onSnapshot } from 'firebase/firestore';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  // postData!: Observable<any>;
 
   constructor(private firestore: Firestore) {
     // this.getData();
@@ -25,12 +26,48 @@ export class ApiService {
   addData(data: object) {
     const collectionInstance = collection(this.firestore, 'posts');
     return addDoc(collectionInstance, data);
-    
+
   }
 
   getData() {
     const collectionInstance = collection(this.firestore, 'posts');
     return collectionData(collectionInstance, { idField: 'id' });
+  }
+
+  async getPostById(id: string) {
+    const docInstance = doc(this.firestore, "posts", id);
+
+    // let currentsPost;
+
+    // onSnapshot(docInstance, (doc) => {
+    //   currentsPost = doc.data()
+    //   console.log(currentsPost);
+
+    //   return currentsPost
+    // })
+
+    let myPost !: any;
+
+    let title !: string
+    let description !: string
+    let coverImage !: string
+    let post !: string
+
+    const docSnap = await getDoc(docInstance);
+    if (docSnap.exists()) {
+      let data = docSnap.data()
+      myPost = data
+
+      title = myPost['title']
+      
+      title = data['title']
+      // description = data['description']
+      // coverImage = data['coverImage']
+      // post = data['post']
+      console.log(title);
+    }
+    return myPost
+
   }
 
   updateData(id: string, data: object) {

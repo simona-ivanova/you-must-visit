@@ -15,8 +15,8 @@
 }
 
 .container {
-    display: flex;
-    justify-content: end;
+    display: flex-end;
+    /* justify-content: end; */
     position: relative;
     width: 80%;
     margin: 0 auto;

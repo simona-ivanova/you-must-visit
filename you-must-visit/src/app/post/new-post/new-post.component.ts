@@ -26,5 +26,8 @@ export class NewPostComponent {
       .catch((err) => {
         console.log(err);
       })
+
+      form.reset()
+      
   }
 }

@@ -7,19 +7,17 @@ import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class UserModule { }

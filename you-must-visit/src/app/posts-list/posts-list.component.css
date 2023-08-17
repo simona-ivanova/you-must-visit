@@ -62,3 +62,6 @@
   margin: 0 0 15px;
 }
 
+p > img{
+  max-width: 30px;
+}

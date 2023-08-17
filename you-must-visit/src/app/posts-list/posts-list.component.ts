@@ -14,6 +14,7 @@ export class PostsListComponent {
 
   description !: string;
   title !: string;
+  coverPhoto !: string;
   post !: string
   id !: string;
 
@@ -49,6 +50,7 @@ export class PostsListComponent {
         .catch(err => {
           console.log(err);
         })
+        
     }
   }
 
@@ -63,6 +65,7 @@ export class PostsListComponent {
     this.id = id;
 
     this.formState = 'Редактирай';
+    
   }
 
   deleteData(id: string) {

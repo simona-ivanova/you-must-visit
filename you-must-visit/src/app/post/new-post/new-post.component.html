@@ -19,6 +19,21 @@
                     </p>
                 </ng-container>
 
+                <input 
+                type="text" 
+                name="coverImage" 
+                placeholder="Заглавна снимка" 
+                ngModel
+                #inputCoverPhoto="ngModel"
+                required
+                />
+
+                <ng-container *ngIf="inputCoverPhoto.touched">
+                    <p class="error" *ngIf="inputCoverPhoto.errors?.['required']">
+                        Полето не може да бъде празно!
+                    </p>
+                </ng-container>
+
                 <textarea
                     type="text" 
                     name="description" 

@@ -17,6 +17,8 @@ import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     PostsListComponent,
     HomeComponent,
     SanitizeHtmlPipe,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

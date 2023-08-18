@@ -20,7 +20,7 @@
                 </ng-container>
 
                 <input 
-                type="text" 
+                type="url" 
                 name="coverImage" 
                 placeholder="Заглавна снимка" 
                 ngModel
@@ -32,6 +32,8 @@
                     <p class="error" *ngIf="inputCoverPhoto.errors?.['required']">
                         Полето не може да бъде празно!
                     </p>
+                    <!-- <p class="error" ng-show="inputCoverPhoto.error.url">
+                        Адресът не е валиден!</p> -->
                 </ng-container>
 
                 <textarea
@@ -56,12 +58,12 @@
                 </ng-container>
 
                 <ckeditor 
-                name="post"
-                data=""
-                ngModel
-                #inputPost="ngModel"
-                required
-                ></ckeditor>
+                    name="post"
+                    data=""
+                    ngModel
+                    #inputPost="ngModel"
+                    required>
+                </ckeditor>
 
                 <ng-container *ngIf="inputPost.touched">
                     <p class="error" *ngIf="inputPost.errors?.['required']">

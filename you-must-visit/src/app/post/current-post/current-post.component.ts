@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Router } from '@angular/router';
-import { Post } from 'src/app/model/post';
 import { AuthService } from 'src/app/user/auth.service';
 
 @Component({
@@ -76,7 +75,7 @@ export class CurrentPostComponent implements OnInit {
         this.showAlert('Data Edited Successfuly');
       })
       .catch((err) => {
-        console.log(err);
+        this.showAlert(err);
       })
 
       this.isEditMode = false
@@ -91,14 +90,12 @@ export class CurrentPostComponent implements OnInit {
       this.showAlert('Data Deleted Successfuly');
     })
     .catch(err=> {
-      console.log(err); 
+      this.showAlert(err);
     })
   }
 
   isAdminIn() {
     this.isAuthenticated = this.authService.isAdminIn();
-    console.log(this.isAuthenticated);
-    
     return this.isAuthenticated
   }
 }

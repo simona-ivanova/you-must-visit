@@ -8,7 +8,7 @@ import {
   doc,
   updateDoc,
   deleteDoc,
-  getDoc
+  getDoc,
 } from '@angular/fire/firestore';
 
 @Injectable({

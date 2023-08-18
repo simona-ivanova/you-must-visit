@@ -23,12 +23,7 @@ export class AuthService implements OnInit {
       .then(
         res => {
           localStorage.setItem('user', JSON.stringify(res.user));
-
-          console.log();
-          
           this.router.navigate(['/']);
-          // console.log(  res.user?.email);
-  
         }, err => {
           alert(err.message);
           this.router.navigate(['/login']);

@@ -27,7 +27,7 @@ export class NewPostComponent {
         console.log(err);
       })
 
-      form.reset()
+      this.router.navigate(['/posts'])
       
   }
 }

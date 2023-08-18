@@ -175,14 +175,6 @@ textarea {
     opacity: .6;
 }
 
-.bottom {
-    height: 460px;
-    background: var(--blue);
-    border-radius: 60% / 10%;
-    transform: translateY(-180px);
-    /* transition: .8s ease-in-out; */
-}
-
 .error {
     color: rgb(187, 48, 48);
     font-size: 1.2em;

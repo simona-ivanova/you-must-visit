@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Post } from 'src/app/model/post';
@@ -18,6 +19,7 @@ export class CurrentPostComponent implements OnInit {
   post !: string
   id !: string;
 
+  isEditMode: boolean = false;
   isSuccess: boolean = false;
   successMessage !: string;
 
@@ -33,25 +35,6 @@ export class CurrentPostComponent implements OnInit {
   showAlert(message: string) {
     this.isSuccess = true;
     this.successMessage = message;
-  }
-
-  updateData() {
-    this.apiService.updateData(this.id, this.postData)
-      .then(() => {
-        this.showAlert('Data Edited Successfuly');
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  getData(description: string, title: string, post: string, id: string) {
-    this.description = description;
-    this.title = title;
-    this.post = post;
-    this.id = id;
-    this.apiService.addData(this.postData)
-
   }
 
   getPost() {
@@ -72,7 +55,25 @@ export class CurrentPostComponent implements OnInit {
       })
   }
 
-  
-  
+  updateData() {
+    this.isEditMode = true;
+  }
 
+  onSubmit(form: NgForm): void {
+
+    if (form.invalid) {
+      return;
+    }
+
+    this.apiService.updateData(this.id, form.value)
+      .then(() => {
+        this.showAlert('Data Edited Successfuly');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
+      this.isEditMode = false
+      this.getPost()
+  }
 }

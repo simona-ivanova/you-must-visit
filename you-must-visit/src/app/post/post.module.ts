@@ -9,7 +9,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 @NgModule({
   declarations: [
     NewPostComponent,
-    CurrentPostComponent
+    CurrentPostComponent,
   ],
   imports: [
     CommonModule,

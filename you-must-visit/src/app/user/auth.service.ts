@@ -1,8 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Router } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +8,15 @@ import { Observable, switchMap } from 'rxjs';
 export class AuthService implements OnInit {
 
   isLoggedin: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(
     public fireauth: AngularFireAuth,
     private router: Router) { }
 
-
     ngOnInit(): void {
      
     }
-
 
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password)
@@ -61,6 +58,16 @@ export class AuthService implements OnInit {
     if (localStorage.getItem("user") == null) {
       this.isLoggedin = false;
       return this.isLoggedin;
+    }
+    else {
+      return true;
+    }
+  }
+
+  isAdminIn() {
+    if (!localStorage.getItem("user")?.includes("FZL78YfA1mNCpIF2gBEBWvr8hVX2")) {
+      this.isAdmin = false;
+      return this.isAdmin;
     }
     else {
       return true;

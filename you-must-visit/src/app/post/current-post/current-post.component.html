@@ -1,10 +1,13 @@
 <ng-container *ngIf="!isEditMode">
- 
-    <div class="container">
-   <div *ngIf="isSuccess"> {{ successMessage }} </div>
-        <button (click)="updateData()">Редактирай</button>
-        <button (click)="deleteData()">Изтрий</button>
 
+    <div class="container">
+        <div *ngIf="isSuccess"> {{ successMessage }} </div>
+        
+        <div class="btn-container" *ngIf="isAdminIn()">
+            <button (click)="updateData()" class="btn">Редактирай</button>
+            <button (click)="deleteData()" class="btn">Изтрий</button>
+        </div>
+        
         <h1>{{title}}</h1>
         <h3>{{description}}</h3>
 
@@ -27,13 +30,8 @@
             <div class="create-post">
                 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
                     <h3>Редактирай</h3>
-                    <input 
-                    type="text" 
-                    name="title" 
-                    placeholder="Заглавие" 
-                    ngModel={{title}} 
-                    #inputTitle="ngModel"
-                    required />
+                    <input type="text" name="title" placeholder="Заглавие" ngModel={{title}} #inputTitle="ngModel"
+                        required />
 
                     <ng-container *ngIf="inputTitle.touched">
                         <p class="error" *ngIf="inputTitle.errors?.['required']">
@@ -41,14 +39,8 @@
                         </p>
                     </ng-container>
 
-                    <input 
-                        type="text" 
-                        name="coverImage" 
-                        placeholder="Заглавна снимка" 
-                        ngModel={{coverImage}}
-                        #inputCoverPhoto="ngModel" 
-                        required
-                    />
+                    <input type="text" name="coverImage" placeholder="Заглавна снимка" ngModel={{coverImage}}
+                        #inputCoverPhoto="ngModel" required />
 
                     <ng-container *ngIf="inputCoverPhoto.touched">
                         <p class="error" *ngIf="inputCoverPhoto.errors?.['required']">
@@ -56,16 +48,8 @@
                         </p>
                     </ng-container>
 
-                    <textarea 
-                        type="text" 
-                        name="description" 
-                        placeholder="Описание" 
-                        ngModel={{description}}
-                        #textAreaInput="ngModel" 
-                        required 
-                        minlength="3"
-                        maxlength="100"
-                    >
+                    <textarea type="text" name="description" placeholder="Описание" ngModel={{description}}
+                        #textAreaInput="ngModel" required minlength="3" maxlength="100">
                     </textarea>
 
                     <ng-container *ngIf="textAreaInput.touched">
@@ -76,7 +60,8 @@
                             Описанието трябва да бъде поне {{ textAreaInput.errors?.['minlength']['requiredLength'] }}
                             символа!</p>
                         <p class="error" *ngIf="textAreaInput.errors?.['maxlength']">
-                            Описанието не може да бъде повече от{{ textAreaInput.errors?.['maxlength']['requiredLength'] }} символа!</p>
+                            Описанието не може да бъде повече от{{ textAreaInput.errors?.['maxlength']['requiredLength']
+                            }} символа!</p>
                     </ng-container>
 
                     <ckeditor name="post" data="" ngModel={{post}} #inputPost required></ckeditor>

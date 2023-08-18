@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
+import { AuthService } from 'src/app/user/auth.service';
 
 @Component({
   selector: 'app-current-post',
@@ -21,12 +22,14 @@ export class CurrentPostComponent implements OnInit {
   id !: string;
 
   isEditMode: boolean = false;
-  
+  isAuthenticated: boolean = true;
+
   isSuccess: boolean = false;
   successMessage !: string;
 
   constructor(
     private apiService: ApiService,
+    private authService: AuthService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
@@ -90,6 +93,13 @@ export class CurrentPostComponent implements OnInit {
     .catch(err=> {
       console.log(err); 
     })
+  }
+
+  isAdminIn() {
+    this.isAuthenticated = this.authService.isAdminIn();
+    console.log(this.isAuthenticated);
+    
+    return this.isAuthenticated
   }
 }
 

@@ -2,14 +2,42 @@
     <div class="banner">
         <div class="container">
             <div class="banner-content">
-                <span>New</span>
-                <h1>Jackets</h1>
-    
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sint sapiente mollitia ab doloremque
-                   </p>
-    
-                <a href="#" class="btn">Start Exploring</a>
+                <h1>Потопи се в приключението!</h1>
+
+                <blockquote>
+                    „Пътуването те оставя безмълвен, а след това те превръща в разказвач“
+                    <footer>
+                        - Ибн Батута
+                    </footer>
+                </blockquote>
+
+                <a href="/posts" class="btn">Последвай ме</a>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="recent-posts">
+       <h2>Най-нови</h2>
+    <div class="recent-posts-container">
+
+     
+
+        <div class="card" *ngFor="let data of postData | async | slice:0:3">
+            <a href="/posts/{{data.id}}">
+                <div class="card-header">
+                    <img src="{{ data.coverImage }}" alt="" />
+                </div>
+                <div class="card-body">
+
+                    <h4>
+                        {{ data.title }}
+                    </h4>
+                    <p>
+                        {{ data.description }}
+                    </p>
+                </div>
+            </a>
         </div>
     </div>
 </div>

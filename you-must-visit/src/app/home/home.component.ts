@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  postData !: Observable<Array<any>>;
+
+  constructor(private apiService: ApiService) {
+    this.getData();
+  }
+
+  getData() {
+    this.postData = this.apiService.getData();
+  }
 }

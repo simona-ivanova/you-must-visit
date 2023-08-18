@@ -42,6 +42,7 @@
                     #textAreaInput="ngModel"
                     required
                     minlength="3"
+                    maxlength="100"
                 ></textarea>
 
                 <ng-container *ngIf="textAreaInput.touched">
@@ -50,6 +51,8 @@
                     </p>
                     <p class="error" *ngIf="textAreaInput.errors?.['minlength']">
                         Описанието трябва да бъде поне {{ textAreaInput.errors?.['minlength']['requiredLength'] }} символа!</p>
+                    <p class="error" *ngIf="textAreaInput.errors?.['maxlength']">
+                         Описанието не може да бъде повече от{{ textAreaInput.errors?.['maxlength']['requiredLength'] }} символа!</p>
                 </ng-container>
 
                 <ckeditor 

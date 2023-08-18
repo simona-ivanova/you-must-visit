@@ -21,6 +21,7 @@ export class CurrentPostComponent implements OnInit {
   id !: string;
 
   isEditMode: boolean = false;
+  
   isSuccess: boolean = false;
   successMessage !: string;
 

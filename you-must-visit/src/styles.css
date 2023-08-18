@@ -33,6 +33,12 @@ html {
     background: rgba(255, 51, 153, .05);
 }
 
+.blog-post-text img {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
 /* .heading span {
     color: var(--blue);
 }

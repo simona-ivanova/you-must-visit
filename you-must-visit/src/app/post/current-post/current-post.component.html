@@ -1,13 +1,10 @@
-<p>current-post works!</p>
+<div class="container">
+  <h1>{{title}}</h1>
+  <h3>{{description}}</h3>
 
-<li *ngIf="data">
-    Заглавие: {{title}}
-    Описание: {{description}}
-    Снимка: <img src="{{coverImage}}" alt="">
 
-   <td [innerHTML]="post"></td>
-
-  
-    
- </li>
-
+    <img src="{{coverImage}}" alt="" class="cover-image">
+  <div class="blog-post-wrapper">
+    <div [innerHTML]="post" class="blog-post-text"></div>
+  </div>
+</div>

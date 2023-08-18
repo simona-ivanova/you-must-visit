@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
 
 @Component({
@@ -26,6 +27,7 @@ export class CurrentPostComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -76,4 +78,18 @@ export class CurrentPostComponent implements OnInit {
       this.isEditMode = false
       this.getPost()
   }
+
+
+  deleteData() {
+    this.apiService.deleteData(this.id)
+    .then(()=> {
+      this.router.navigate(['posts']);
+      this.showAlert('Data Deleted Successfuly');
+    })
+    .catch(err=> {
+      console.log(err); 
+    })
+  }
 }
+
+

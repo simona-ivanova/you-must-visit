@@ -5,7 +5,7 @@ footer {
     right: 0;
     background-color:#fff;
     height: auto;
-    width: 100vw;
+    width: 100%;
     font-family: 'Open Sans';
     padding-top: 30px;
     margin: 0;
@@ -59,7 +59,7 @@ footer {
 }
 
 .footer-bottom {
-    width: 100vw;
+    width: 100%;
     padding: 20px 0;
     text-align: center;
     background: #e8e6ed;

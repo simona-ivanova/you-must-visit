@@ -10,7 +10,7 @@
 
 .main {
     width: 350px;
-    height: 450px;
+    /* height: 450px; */
     overflow: hidden;
     background-color: #fff;
     border-radius: 10px;
@@ -23,14 +23,6 @@
     height: 100%;
 }
 
-.profile i {
-    color: var(--blue);
-    font-size: 10rem;
-    border: 5px solid var(--blue);
-    border-radius: 100%;
-    padding: 3rem;
-
-}
 
 .profile p {
     font-size: 2rem;
@@ -41,6 +33,24 @@
 
 .profile span {
     font-weight: 400;
+}
+
+.profile .user-icon-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    margin: 30px auto 0;
+}
+.profile .user-icon-wrapper .user-icon {
+    display: block;
+    font-size: 55px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .logout-wrapper {
@@ -82,22 +92,44 @@ input {
 }
 
 .logout {
-    height: 460px;
-    background: var(--blue);
-    border-radius: 60% / 10%;
-    transform: translateY(-180px);
-    /* transition: .8s ease-in-out; */
+    position: relative;
+    font-size: 16px;
+    height: 50px;
+    background: transparent;
+    color: gray;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: 85px;
 }
 
-.logout i {
+.logout::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100px;
+    background:  var(--blue);
+    border-radius: 55% / 35%;
+}
+
+.logout .logout-button {
+    position: relative;
+    z-index: 20;
+    width: fit-content;
+    margin: 0 auto;
+    top: 17px;
+}
+
+.logout .logout-button i {
     color: #fff;
+    margin-right: 10px;
 }
 
-.logout li {
+.logout .logout-button span {
     cursor: pointer;
     color: #fff;
 }
 
-.logout li:hover {
+.logout .logout-button span:hover {
     opacity: .6;
 }

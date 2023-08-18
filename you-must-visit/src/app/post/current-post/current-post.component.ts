@@ -40,6 +40,9 @@ export class CurrentPostComponent implements OnInit {
   showAlert(message: string) {
     this.isSuccess = true;
     this.successMessage = message;
+    setTimeout(() => {
+      this.isSuccess = false;
+    }, 2000);
   }
 
   getPost() {
@@ -72,7 +75,7 @@ export class CurrentPostComponent implements OnInit {
 
     this.apiService.updateData(this.id, form.value)
       .then(() => {
-        this.showAlert('Data Edited Successfuly');
+        this.showAlert('Данните са редактирани успешно!');
       })
       .catch((err) => {
         this.showAlert(err);
@@ -82,16 +85,16 @@ export class CurrentPostComponent implements OnInit {
       this.getPost()
   }
 
-
   deleteData() {
-    this.apiService.deleteData(this.id)
-    .then(()=> {
-      this.router.navigate(['posts']);
-      this.showAlert('Data Deleted Successfuly');
-    })
-    .catch(err=> {
-      this.showAlert(err);
-    })
+      if (confirm('Сигурен ли си, че искаш да изтриеш поста?')) {
+      this.apiService.deleteData(this.id)
+      .then(()=> {
+        this.router.navigate(['posts']);
+      })
+      .catch(err=> {
+        this.showAlert(err);
+      })
+    } 
   }
 
   isAdminIn() {

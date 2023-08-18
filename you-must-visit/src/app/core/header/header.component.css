@@ -97,6 +97,10 @@ header .fa-bars {
         display: block;
     }
 
+    header nav {
+        display: none;
+    }
+
     header nav ul {
         position: absolute;
         top: 100%;
@@ -119,6 +123,13 @@ header .fa-bars {
         border: .1rem solid rgba(0, 0, 0, .1);
         display: block;
 
+    }
+}
+
+@media (max-width:500px) {
+
+    header .logo {
+        font-size: 25px;
     }
 }
 

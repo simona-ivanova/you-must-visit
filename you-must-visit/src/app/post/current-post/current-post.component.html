@@ -1,7 +1,7 @@
 <ng-container *ngIf="!isEditMode">
 
     <div class="container">
-        <div *ngIf="isSuccess"> {{ successMessage }} </div>
+        <div class="success-message" *ngIf="isSuccess"> <span>{{ successMessage }}</span></div>
 
         <div class="btn-container" *ngIf="isAdminIn()">
             <button (click)="updateData()" class="btn">Редактирай</button>

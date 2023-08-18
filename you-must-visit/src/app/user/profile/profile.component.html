@@ -3,15 +3,17 @@
     <div class="main">
 
         <div class="profile">
-            <i class="fa fa-user" aria-hidden="true"></i>
+            <div class="user-icon-wrapper">
+                 <i class="fa fa-user user-icon" aria-hidden="true"></i>
+            </div>
             <p>Потребителско име: <span>{{username}}</span></p>
             <p>Имейл: <span>{{userEmail}}</span></p>
         </div>
 
         <div class="logout">
-            <div class="logout-wrapper">
+            <div class="logout-button">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
-                <li (click)="logout()" type="none">Излизане</li>
+                <span (click)="logout()" type="none">Излизане</span>
             </div>
         </div>
     </div>

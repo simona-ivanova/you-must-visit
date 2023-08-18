@@ -98,7 +98,8 @@
 
 .recent-posts-container {
     display: flex;
-    margin: 30px 30px;
+    margin: 30px auto;
+    max-width: 900px;
     width: 100%;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -110,7 +111,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    width: 300px;
+    width: calc(33.33% - 20px);
     /* height: 350px; */
   }
   
@@ -140,3 +141,26 @@
     max-width: 30px;
   }
   
+
+  @media (max-width:800px) {
+
+    .card {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  
+  @media (max-width:500px) {
+  
+    .card {
+      width: calc(80% - 20px);
+    }
+  }
+  
+  
+  @media (max-width:380px) {
+  
+    .card {
+      width: calc(100% - 20px);
+    }
+  }

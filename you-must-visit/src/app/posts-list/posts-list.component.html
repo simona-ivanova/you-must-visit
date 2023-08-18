@@ -1,41 +1,3 @@
-<div class="old">
-    <button> Добави Нов Пост </button>
-
-    <!-- alert -->
-
-    <div *ngIf="isSuccess"> {{ successMessage }} </div>
-
-    <!-- Add New Post Form -->
-
-    <h2> {{ formState }} Пост </h2>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-        <label for="description">Описание</label>
-        <input [(ngModel)]="description" type="text" name="description">
-        <br>
-        <label for="title">Заглавие</label>
-        <input [(ngModel)]="title" type="text" name="title">
-        <br>
-        <button type="submit">
-            {{ formState }} Пост
-        </button>
-    </form>
-
-    <br /><br /><br />
-
-    <ul type="none">
-        <li *ngFor="let data of postData | async">
-            Заглавие: {{ data.title }} / Описание: {{ data.description}} / {{ data.id}} /
-
-            <td [innerHTML]="data.post | sanitizeHtml"></td>
-
-            <button (click)="updateData(data.description, data.title, data.post, data.id)"> Edit </button>
-            <button (click)="deleteData(data.id)"> Delete </button>
-        </li>
-    </ul>
-</div>
-
-
-
 <div class="container">
     <div class="card" *ngFor="let data of postData | async">
         <a href="/posts/{{data.id}}">
@@ -50,9 +12,6 @@
                 <p>
                     {{ data.description}}
                 </p>
-                <div class="data">
-                    <p>23/04/2023</p>
-                </div>
             </div>
         </a>
     </div>

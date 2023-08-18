@@ -1,13 +1,11 @@
-.old {
-    padding-top: 100px;
-}
-
 .container {
   display: flex;
-  width: 1040px;
+  padding-top: 80px;
+  width: 100%;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
 .card {
   margin: 10px;
   background-color: #fff;

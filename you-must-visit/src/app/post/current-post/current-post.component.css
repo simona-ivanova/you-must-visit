@@ -73,6 +73,12 @@
     margin: 0 auto;
 }
 
+.title-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .blog-post-text {
     font-size: 13px;
 }

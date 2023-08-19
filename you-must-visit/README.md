@@ -1,44 +1,27 @@
-# You-must-visit
-You Must Visit is a travel blog app built with Angular 16.1.4. This is a project, created for educational purposes.
+# YouMustVisit
 
-# Application is deployed in Firebase hosting:
-https://js-apps-2022-ca821.web.app/home
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
-## Architecture overview
+## Development server
 
-* Server - Firebase
-* Client - Angular
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## User Authentication
+## Code scaffolding
 
-There are two users, which can be used for immediate testing:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-* Normal User - ivan@abv.bg : 123456
-*  Administrator User - simona@gmail.com : 123456
+## Build
 
-### Publick part
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-The user can:
+## Running unit tests
 
-* view Post list
-* login
-* register
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Private part
+## Running end-to-end tests
 
-The private part is accessible with authentication. The user can:
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-* view Post list
-* view Current post
-* view Profile
+## Further help
 
-### Administrative part
-
-The administrative part is accessible with authentication. The user can:
-
-* view Post list 
-* view Current post 
-* edit Post 
-* delete Post 
-* view Profile
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

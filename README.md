@@ -18,16 +18,16 @@ There are two users, which can be used for immediate testing:
 ## Publick part
 The user can:
 
-view Post list
-login
-register
+-view Post list
+-login
+-register
 
 ## Private part
 The private part is accessible with authentication. The user can:
 
-view Post list
-view Current post
-view Profile
+-view Post list
+-view Current post
+-view Profile
 
 ## Administrative part
 The administrative part is accessible with authentication. The user can:
